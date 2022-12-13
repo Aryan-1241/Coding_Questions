@@ -1,0 +1,36 @@
+
+// creating a binary tree
+import java.util.*;
+public class Main
+{
+    class Node{
+        int data;
+        Node left , right;
+        
+        public Node(int data){
+            this.data = data;
+        } 
+    }
+    static Scanner sc = null;
+	public static void main(String[] args) {
+		sc = new Scanner(System.in);
+		Node root = createTree();
+	}
+	
+	static Node createTree(){
+	    Node root = null;
+	    System.out.println("Enter the root data: ");
+	    int data = sc.nextInt();
+	    if(data==-1){
+	        return root;
+	    }
+	    
+	    root = new Node(data);
+	    System.out.println("Enter data for left node: ");
+	    root.left = createTree();
+	    
+	    System.out.println("Enter data for right: ");
+	    root.right = createTree();
+	    return root;
+	}
+}
